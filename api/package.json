@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "tsx watch --env-file=.env src/server.ts",
     "start": "node dist/server.js",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
   },
   "keywords": [],
   "author": "",
@@ -15,10 +18,15 @@
   "devDependencies": {
     "@biomejs/biome": "2.3.1",
     "@types/node": "^24.9.1",
+    "drizzle-kit": "^0.31.5",
     "tsx": "^4.20.6",
     "typescript": "~5.9.3"
   },
   "dependencies": {
-    "fastify": "^5.6.1"
+    "drizzle-orm": "^0.44.7",
+    "drizzle-zod": "^0.8.3",
+    "fastify": "^5.6.1",
+    "pg": "^8.16.3",
+    "uuidv7": "^1.0.2"
   }
 }

@@ -14,14 +14,21 @@ export const listWebhooks: FastifyPluginAsyncZod = async (app) => {
           200: z.array(
             z.object({
               id: z.string(),
-              method: z.string()
-            })
-          )
-        }
+              method: z.string(),
+            }),
+          ),
+        },
       },
     },
     async (request, reply) => {
       const { limit } = request.query
+
+      return [
+        {
+          id: '123',
+          method: 'test',
+        },
+      ]
     },
   )
 }

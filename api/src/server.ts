@@ -9,6 +9,7 @@ import {
   type ZodTypeProvider,
 } from 'fastify-type-provider-zod'
 import { listWebhooks } from './routes/list-webhooks'
+import { env } from './env'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -38,7 +39,7 @@ app.register(ScalarApiReference, {
 
 app.register(listWebhooks)
 
-app.listen({ port: 3333, host: '0.0.0.0' }).then(() => {
+app.listen({ port: env.PORT, host: '0.0.0.0' }).then(() => {
   console.log('🚀 HTTP server running on http://localhost:3333!')
   console.log('📚 Docs available on http://localhost:3333/docs')
 })
