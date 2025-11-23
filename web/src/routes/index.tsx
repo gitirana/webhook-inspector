@@ -5,6 +5,7 @@ import { Badge } from '../components/ui/badge'
 import { WebhookDetailHeader } from '../components/webhook-detail-header'
 import { SectionTitle } from '../components/section-title'
 import { SectionDataTable } from '../components/section-data-table'
+import { CodeBlock } from '../components/ui/code-block'
 export const Route = createFileRoute('/')({
   component: Index,
 })
@@ -16,6 +17,8 @@ function Index() {
     { key: 'Content-Type', value: 'application/json' },
     { key: 'Content-Length', value: '2023 bytes' },
   ]
+
+
   return (
     <div className='h-screen bg-zinc-900'>
       <PanelGroup direction='horizontal'>
@@ -48,7 +51,7 @@ function Index() {
                 <div className='space-y-4'>
                   <SectionTitle>Request Body</SectionTitle>
 
-
+                  <CodeBlock code={JSON.stringify(overviewData, null, 2)} />
                 </div>
               </div>
             </div>
